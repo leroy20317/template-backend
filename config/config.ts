@@ -6,8 +6,7 @@ const isDev = process.env.NODE_ENV === 'development';
 const domain = process.env.SERVER === 'formal' ? '' : '';
 const cdnHost = `cdn${domain}`;
 const packageName = process.env.npm_package_name;
-const publicPath =
-  process.env.NODE_ENV === 'production' ? `//${cdnHost}/${packageName}/` : '/';
+const publicPath = isDev ? '/' : `//${cdnHost}/${packageName}/`;
 
 export default defineConfig({
   esbuildMinifyIIFE: true,
@@ -35,12 +34,11 @@ export default defineConfig({
   routes,
   jsMinifier: 'esbuild',
   jsMinifierOptions: {
-    drop: !isDev && ['console', 'debugger'],
+    drop: isDev ? [] : ['console', 'debugger'],
   },
   define: {
     'process.env.SERVER': process.env.SERVER,
     'process.env.BASE_DOMAIN': domain,
-    'process.env.PUBLIC_PATH': publicPath,
   },
   publicPath,
   tailwindcss: {},
