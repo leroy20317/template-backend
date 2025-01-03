@@ -9,7 +9,7 @@
     "format": "prettier --cache --write .",
     "postinstall": "max setup",
     "prepare": "husky",
-    "serve": "max serve",
+    "serve": "http-server dist",
     "setup": "max setup"
   },
   "lint-staged": {
@@ -36,6 +36,7 @@
     "@types/react": "^18.0.33",
     "@types/react-dom": "^18.0.11",
     "cross-env": "^7.0.3",
+    "http-server": "^14.1.1",
     "husky": "^9",
     "lint-staged": "^13.2.0",
     "mime": "^4.0.6",
