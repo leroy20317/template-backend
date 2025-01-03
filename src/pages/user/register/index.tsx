@@ -94,14 +94,11 @@ const Register: FC = () => {
     data: StateType;
   }>(fakeRegister, {
     manual: true,
-    onSuccess: (data, params) => {
+    onSuccess: (data) => {
       if (data.status === 'ok') {
         message.success('注册成功！');
         history.push({
           pathname: '/user/register-result',
-          state: {
-            account: params.email,
-          },
         });
       }
     },

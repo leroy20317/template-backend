@@ -8,6 +8,7 @@ const routes: Routes = [
   },
   {
     path: '/user',
+    component: '@/layouts/User',
     layout: false,
     routes: [
       {
@@ -29,9 +30,6 @@ const routes: Routes = [
         name: '注册',
         path: '/user/register',
         component: './user/register',
-      },
-      {
-        component: '404',
       },
     ],
   },
@@ -76,7 +74,7 @@ const routes: Routes = [
     icon: 'table',
     component: './table',
   },
-  { component: '404' },
+  { path: '/*', layout: false, component: '@/pages/404' },
 ];
 
 export default routes;

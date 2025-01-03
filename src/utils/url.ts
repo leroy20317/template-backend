@@ -1,9 +1,5 @@
 const baseDomain = process.env.BASE_DOMAIN;
-const packageName = process.env.npm_package_name;
-const staticHost =
-  process.env.NODE_ENV === 'production'
-    ? `//cdn${baseDomain}/${packageName}/dist/static`
-    : '/static';
+const staticHost = `${process.env.PUBLIC_PATH}static`;
 
 const apiHost = `//api${baseDomain}`;
 const url = {
